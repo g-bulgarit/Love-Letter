@@ -37,4 +37,4 @@ def upload_file():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="10.0.0.9", port=5000)
