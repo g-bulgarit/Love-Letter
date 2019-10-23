@@ -6,7 +6,7 @@ import glob
 def _getfiles(path_to_dir):
     file_list = glob.glob(path_to_dir + "*.*")
     try:
-        file_list.remove("/home/pi/LoveLetter/Images/whitelist.txt")
+        file_list.remove("/home/pi/Love-Letter/Images/whitelist.txt")
     except ValueError:
         pass
     return file_list
@@ -92,13 +92,14 @@ def queue_and_print(path, channel=None):
     for file_to_print in new_files:
         print("[i] Printing file: " + str(file_to_print))
         print_file(file_to_print)
+        sleep(1)
 
         print("[i] Adding " + str(file_to_print) + " to whitelist...")
         update_whitelist(path, file_to_print)
 
 
 if __name__ == "__main__":
-    whitelist_path = r"/home/pi/LoveLetter/Images/"
+    whitelist_path = r"/home/pi/Love-Letter/Images/"
     while True:
         queue_and_print(whitelist_path)
         sleep(5)
